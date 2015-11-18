@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["trev@a07.com.au"]
 
   spec.summary       = %q{Thin Ruby wrapper around Cloudflare's V4 API.}
-  spec.description   = %q{Thin Ruby wrapper around Cloudflare's V4 API.}
+  spec.description   = %q{Thin Ruby wrapper around Cloudflare's V4 API for good measure!}
   spec.homepage      = "https://github.com/trev/rubyflare"
   spec.license       = "MIT"
 
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec", "~> 3.4"
   spec.add_development_dependency "webmock", "~> 1.22"
   spec.add_development_dependency "vcr", "~> 2.9"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 0.4.8"
