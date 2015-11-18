@@ -8,6 +8,7 @@ VCR.configure do |config|
     ENV['CLOUDFLARE_API_KEY']
   end
   config.configure_rspec_metadata!
+  config.ignore_hosts 'codeclimate.com'
 end
 
 describe Rubyflare::Connect do
