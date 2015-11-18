@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/trev/rubyflare/badges/gpa.svg)](https://codeclimate.com/github/trev/rubyflare) [![Test Coverage](https://codeclimate.com/github/trev/rubyflare/badges/coverage.svg)](https://codeclimate.com/github/trev/rubyflare/coverage)
 # Rubyflare
 
 Work in progress, Ruby wrapper for Cloudflare's V4 API.
