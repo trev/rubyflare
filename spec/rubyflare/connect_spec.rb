@@ -56,15 +56,4 @@ describe Rubyflare::Connect do
       end
     end
   end
-
-  describe '.build_url' do
-    let(:endpoint) { 'zones' }
-    let(:options) { { name: 'superdomain.com', status: 'active' } }
-
-    it 'returns a valid url' do
-      stub_const('API_URL', 'https://api.cloudflare.com/client/v4/zones')
-      expect(described_class.build_url(endpoint, options)).
-        to eq "https://api.cloudflare.com/client/v4/zones?name=superdomain.com&status=active"
-    end
-  end
 end

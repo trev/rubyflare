@@ -11,24 +11,14 @@ module Rubyflare
     end
     
     %i(get post).each do |method_name|
-
       define_method(method_name) do |endpoint, options = {}|
-        url = self.class.build_url(endpoint, options)
-
-        response = Curl.send(method_name, url) do |http|
+        response = Curl.send(method_name, API_URL + endpoint, options) do |http|
           http.headers['X-Auth-Email'] = @email
           http.headers['X-Auth-Key'] = @api_key
         end
-        @response = Rubyflare::Response.new(method_name, url, response.body)
+        @response = Rubyflare::Response.new(method_name, endpoint, response.body_str)
       end
     end
-
-    def self.build_url(endpoint, options = {})
-      url = API_URL + endpoint
-      url += "?#{URI.encode_www_form(options)}" unless options.empty?
-      url
-    end
-
   end
 end
 

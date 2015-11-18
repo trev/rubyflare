@@ -4,7 +4,6 @@ require 'rubyflare/response'
 
 require 'curb'
 require 'json'
-require 'uri'
 
 module Rubyflare
   class ConnectionError < StandardError
