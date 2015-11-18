@@ -21,7 +21,41 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First off, open https://api.cloudflare.com/ to see all the availble endpoints
+
+### Quick start
+
+```
+  require 'rubyflare'
+  
+  connection = Rubyflare.connect_with('bear@dog.com', 'supersecretapikey')
+  
+  # Get your user account details
+  user = connection.get('user')
+
+  # Get the result
+  p user.result
+
+  # Get your first name
+  p user.result[:first_name]
+
+  # Create a new zone (domain)
+  zone = connection.post('zones', { name: 'supercooldomain.com' })
+
+  # Check it out
+  p zone.result
+
+  # Want more details? Pluralize #result
+  p zones.results
+
+  # Catch errors
+  begin
+    connection.get('user')
+  rescue => e
+    # Inspect this for more details
+    p e.response
+  end
+```
 
 ## Development
 
