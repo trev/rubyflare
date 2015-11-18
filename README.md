@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-First off, open https://api.cloudflare.com/ to see all the availble endpoints
+First off, open https://api.cloudflare.com/ to see all the available endpoints
 
 ### Quick start
 
