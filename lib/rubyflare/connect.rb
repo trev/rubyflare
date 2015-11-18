@@ -1,29 +1,26 @@
-require 'curb'
-require 'json'
-
 module Rubyflare
   class Connect
 
-    attr_reader :success, :error
+    attr_reader :response
 
     API_URL = "https://api.cloudflare.com/client/v4/"
 
     def initialize(email, api_key)
       @email = email
       @api_key = api_key
-
-      results = Curl.get(API_URL + 'user') do |http|
-        http.headers['X-Auth-Email'] = @email
-        http.headers['X-Auth-Key'] = @api_key
+    end
+    
+    %i(get post).each do |method_name|
+      define_method(method_name) do |endpoint|
+        response = Curl.send(method_name, API_URL + endpoint) do |http|
+          http.headers['X-Auth-Email'] = @email
+          http.headers['X-Auth-Key'] = @api_key
+        end
+        @response = Rubyflare::Response.new(method_name, endpoint,
+                                            response.body_str)
       end
-
-      results = JSON.parse(results.body_str, symbolize_names: true)
-
-      @success = results[:success]
-
-      @error = ConnectionError.new("No worky", results[:errors]) unless @success
-
-      self
     end
   end
 end
+
+

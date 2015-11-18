@@ -1,5 +1,8 @@
-require "rubyflare/version"
-require "rubyflare/connect"
+require 'rubyflare/version'
+require 'rubyflare/connect'
+require 'rubyflare/response'
+require 'curb'
+require 'json'
 
 module Rubyflare
   class ConnectionError < StandardError
@@ -10,7 +13,7 @@ module Rubyflare
     end
   end
 
-  def self.connect(email, api_key)
+  def self.connect_with(email, api_key)
     Rubyflare::Connect.new(email, api_key)
   end
 end
