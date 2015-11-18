@@ -14,6 +14,10 @@ module Rubyflare
     end
 
     def result
+      body[:result].first
+    end
+
+    def results
       body[:result]
     end
 
