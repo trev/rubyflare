@@ -1,3 +1,15 @@
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<CLOUDFLARE_EMAIL>') do
+    ENV['CLOUDFLARE_EMAIL']
+  end
+  config.filter_sensitive_data('<CLOUDFLARE_API_KEY>') do
+    ENV['CLOUDFLARE_API_KEY']
+  end
+  config.configure_rspec_metadata!
+end
+
 describe Rubyflare::Connect do
 
   let(:email)   { ENV['CLOUDFLARE_EMAIL'] }
@@ -17,7 +29,7 @@ describe Rubyflare::Connect do
     end
   end
 
-  describe '#get' do
+  describe '#get', :vcr do
 
     context 'with valid credentials' do
 
