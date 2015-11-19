@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/trev/rubyflare/badges/gpa.svg)](https://codeclimate.com/github/trev/rubyflare) [![Test Coverage](https://codeclimate.com/github/trev/rubyflare/badges/coverage.svg)](https://codeclimate.com/github/trev/rubyflare/coverage) [![Build Status](https://travis-ci.org/trev/rubyflare.svg?branch=master)](https://travis-ci.org/trev/rubyflare)
+[![Gem Version](https://badge.fury.io/rb/rubyflare.svg)](https://badge.fury.io/rb/rubyflare) [![Code Climate](https://codeclimate.com/github/trev/rubyflare/badges/gpa.svg)](https://codeclimate.com/github/trev/rubyflare) [![Test Coverage](https://codeclimate.com/github/trev/rubyflare/badges/coverage.svg)](https://codeclimate.com/github/trev/rubyflare/coverage) [![Build Status](https://travis-ci.org/trev/rubyflare.svg?branch=master)](https://travis-ci.org/trev/rubyflare)
 # Rubyflare
 
 Super thin Ruby wrapper for Cloudflare's V4 API.
