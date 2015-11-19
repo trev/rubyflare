@@ -25,34 +25,85 @@ First off, open https://api.cloudflare.com/ to see all the available endpoints
 
 ### Quick start
 
+#### Setup connection
+
 ```
   require 'rubyflare'
   
   connection = Rubyflare.connect_with('bear@dog.com', 'supersecretapikey')
-  
-  # Get your user account details
+```
+
+#### GET your user account details
+
+```
   user = connection.get('user')
 
-  # Get the result
+  # Read the first result
   p user.result
 
-  # Get your first name
+  # Read your first name
   p user.result[:first_name]
+```
 
-  # Create a new zone (domain)
+#### Update(PATCH) your user account
+
+```
+  user = connection.patch('user', { first_name: 'Bear' })
+
+  # Read the first result
+  p user.result
+```
+
+#### GET all your zones
+
+```
+  zones = connection.get('zones')
+
+  # Read the first zone
+  p zones.result
+
+  # Read the array of zones. Pluralize #result
+  p zones.results
+```
+
+#### Create(POST) a new zone (domain)
+
+```
   zone = connection.post('zones', { name: 'supercooldomain.com' })
 
   # Check it out
   p zone.result
+```
 
-  # Want more details? Pluralize #result
-  p zones.results
+#### Add(POST) an A Record to the zone
 
-  # Catch errors
+```
+  dns_record = connection.post('zones/{#zone.result[:id]}/dns_records', {
+                               type: 'A",
+                               name: 'supercooldomain.com',
+                               content: '127.0.0.1'
+                               })
+  
+  # Check it out
+  p dns_record.result
+```
+
+#### DELETE a zone
+
+```
+  deleted_zone = connection.delete('zones/#{zone.result[:id]}')
+  
+  # Check out the response
+  p deleted_zone
+```
+
+#### Catch errors
+
+```
   begin
     connection.get('user')
   rescue => e
-    # Inspect this for more details
+    # Inspect e.reponse for more details
     p e.response
   end
 ```
