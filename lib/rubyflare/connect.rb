@@ -17,7 +17,7 @@ module Rubyflare
           http.headers['X-Auth-Email'] = @email
           http.headers['X-Auth-Key'] = @api_key
           http.headers['Content-Type'] = 'application/json'
-          http.headers['User-Agent'] = 'Rubyflare/1.01'
+          http.headers['User-Agent'] = "Rubyflare/#{Rubyflare::VERSION}"
         end
         @response = Rubyflare::Response.new(method_name, endpoint, response.body_str)
       end
