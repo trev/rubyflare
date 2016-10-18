@@ -1,9 +1,5 @@
 describe 'integration' do
-  describe Rubyflare, :vcr, order: :defined do
-    # Given I have valid Cloudflare credentials
-    # When I create a Rubyflare instance
-    # And get my Cloudflare user details
-    # Then I should have valid response
+  describe Rubyflare, order: :defined do
     context 'given I have valid Cloudflare credentials' do
       let(:email)   { ENV['CLOUDFLARE_EMAIL'] }
       let(:api_key) { ENV['CLOUDFLARE_API_KEY'] }
@@ -30,7 +26,7 @@ describe 'integration' do
         context 'and create(POST) a new zone' do
 
           it 'should return a valid response' do
-            response = connection.post('zones', { name: 'supercooldomain.com' })
+            response = connection.post('zones', { name: 'example.org' })
             expect(response).to be_successful
           end
         end
@@ -38,7 +34,7 @@ describe 'integration' do
         context 'and remove(DELETE) a zone' do
 
           it 'should return a valid response' do
-            domain_zone = connection.get('zones', { name: 'supercooldomain.com' })
+            domain_zone = connection.get('zones', { name: 'example.org' })
             response = connection.delete("zones/#{domain_zone.result[:id]}")
             expect(response).to be_successful
           end
