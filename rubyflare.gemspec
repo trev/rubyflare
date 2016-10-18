@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 11.3"
   spec.add_development_dependency "rspec", "~> 3.5"
   spec.add_development_dependency "webmock", "~> 2.1"
-  spec.add_development_dependency "vcr", "~> 3.0"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 0.6.0"
 
   spec.add_runtime_dependency "curb", "~> 0.9.3"
