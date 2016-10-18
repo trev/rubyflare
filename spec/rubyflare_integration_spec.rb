@@ -22,23 +22,6 @@ describe 'integration' do
             expect(response).to be_successful
           end
         end
-
-        context 'and create(POST) a new zone' do
-
-          it 'should return a valid response' do
-            response = connection.post('zones', { name: 'example.org' })
-            expect(response).to be_successful
-          end
-        end
-
-        context 'and remove(DELETE) a zone' do
-
-          it 'should return a valid response' do
-            domain_zone = connection.get('zones', { name: 'example.org' })
-            response = connection.delete("zones/#{domain_zone.result[:id]}")
-            expect(response).to be_successful
-          end
-        end
       end
     end
   end
