@@ -79,7 +79,7 @@ First off, open https://api.cloudflare.com/ to see all the available endpoints
 
 ```
   dns_record = connection.post('zones/{#zone.result[:id]}/dns_records', {
-                               type: 'A",
+                               type: 'A',
                                name: 'supercooldomain.com',
                                content: '127.0.0.1'
                                })
