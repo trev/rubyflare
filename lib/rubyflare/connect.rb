@@ -5,7 +5,6 @@ module Rubyflare
 
     API_URL = "https://api.cloudflare.com/client/v4/"
 
-    # def initialize(email, api_key)
     def initialize(**options)
       @api_token = options[:api_token]
       @email = options[:email]
