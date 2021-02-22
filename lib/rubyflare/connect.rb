@@ -7,14 +7,9 @@ module Rubyflare
 
     # def initialize(email, api_key)
     def initialize(**options)
-      if options.length == 1
-        # We are using an API token
-        @api_token = options[:api_token]
-      elsif options.length == 2
-        # Usual email and API connection
-        @email = options[:email]
-        @api_key = options[:api_key]
-      end
+      @api_token = options[:api_token]
+      @email = options[:email]
+      @api_key = options[:api_key]
 
     end
     
@@ -37,5 +32,4 @@ module Rubyflare
     end
   end
 end
-
 
