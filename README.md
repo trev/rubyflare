@@ -31,6 +31,9 @@ First off, open https://api.cloudflare.com/ to see all the available endpoints
   require 'rubyflare'
   
   connection = Rubyflare.connect_with('bear@dog.com', 'supersecretapikey')
+
+  # OR connect with API Token
+  connection = Rubyflare.connect_with_token('API_TOKEN')
 ```
 
 #### GET your user account details
