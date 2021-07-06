@@ -1,4 +1,6 @@
 require "codeclimate-test-reporter"
+require 'webmock/rspec'
+
 CodeClimate::TestReporter.start
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'rubyflare'

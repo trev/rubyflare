@@ -9,7 +9,6 @@ module Rubyflare
       @api_token = options[:api_token]
       @email = options[:email]
       @api_key = options[:api_key]
-
     end
     
     %i(get post put patch delete).each do |method_name|
